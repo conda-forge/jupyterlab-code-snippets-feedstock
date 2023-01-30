@@ -23,6 +23,7 @@ requirements:
     - jupyterlab >=3.4.7,<4.0.0
     - python >=3.7
     - pip
+    - wheel
   run:
     - jupyterlab >=3,<4
     - python >=3.6
