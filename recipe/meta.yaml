@@ -1,18 +1,18 @@
 {% set name = "jupyterlab-code-snippets" %}
-{% set version = "2.1.0" %}
+{% set version = "2.2.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b7e120fb7dfc32fe04460e8652c59ed84a585c8ea80a8f8887f02581a86a591c
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 4f85f2997ff513bfff6901d42eda18931f848cedaa8e684161658c0e7296aff5
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -37,7 +37,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Save, reuse, and share code snippets using JupyterLab Code Snippets'
+  summary: Save, reuse, and share code snippets using JupyterLab Code Snippets
   dev_url: https://github.com/jupytercalpoly/jupyterlab-code-snippets
 
 extra:
