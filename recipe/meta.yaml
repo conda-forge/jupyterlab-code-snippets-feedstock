@@ -1,13 +1,13 @@
 {% set name = "jupyterlab-code-snippets" %}
-{% set version = "2.1.0" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b7e120fb7dfc32fe04460e8652c59ed84a585c8ea80a8f8887f02581a86a591c
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 465f31b51f2458881e6ece61ca1681d4d5855c3eba65e7e6e19baf5840303ae9
 
 build:
   noarch: python
@@ -18,11 +18,12 @@ requirements:
   build:
     - nodejs >=12.0.0
   host:
-    - jupyter-packaging >=0.7.9,<0.8
-    - jupyterlab >=3,<4
-    - python >=3.6
+    - hatch-jupyter-builder >=0.5
+    - hatch-nodejs-version
+    - hatchling >=1.4.0
+    - jupyterlab >=3.4.7,<4.0.0
     - pip
-    - setuptools >=40.8.0
+    - python >=3.7
     - wheel
   run:
     - jupyterlab >=3,<4
